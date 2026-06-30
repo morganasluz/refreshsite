@@ -10,20 +10,28 @@
 /* ==========================================
    TRAVA DE COR E COMPATIBILIDADE MOBILE
    ========================================== */
+/* ==========================================
+   BLINDAGEM CONTRA MODO ESCURO FORÇADO DO CELULAR
+   ========================================== */
+:root {
+    /* Força o navegador a entender que o site é estritamente de tema claro */
+    supported-color-schemes: light;
+}
+
 html, body {
     width: 100%;
-    min-height: 100%;
+    min-height: 100vh;
     
-    /* 🌟 AS TRÊS LINHAS QUE BLINDAM A COR: */
-    background-color: #82e9b4 !important; /* Força o verde menta original */
-    color: #111111 !important;            /* Força o texto escuro original */
-    color-scheme: light;                  /* Diz ao celular: "Este site é feito para modo claro" */
+    /* Cores forçadas em todos os formatos possíveis */
+    background: #82e9b4 !important;
+    background-color: #82e9b4 !important;
+    color: #111111 !important;
     
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
+    /* Bloqueia a inversão forçada de cor em navegadores baseados em Chromium (Chrome/Samsung) */
+    color-scheme: light !important;
+    forced-color-adjust: none !important;
 }
+
 
 
 /* 1. O novo container dos dois elementos unidos */
