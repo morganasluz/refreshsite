@@ -1,0 +1,195 @@
+/* ==========================================
+   1. ESTILO BASE (MOBILE FIRST)
+   ========================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #8defbf; /* Cor verde menta aproximada da sua imagem */
+    color: #111111;            /* Cor do texto escura */
+}
+
+/* O container que força tudo a ficar no centro da tela */
+.tela-centralizada {
+    display: flex;
+    flex-direction: column;   /* Empilha os elementos em linha vertical */
+    justify-content: center;  /* Centraliza verticalmente na tela */
+    align-items: center;      /* Centraliza horizontalmente na tela */
+    min-height: 100vh;        /* Garante que o container ocupe 100% da altura da tela */
+    text-align: center;
+    padding: 20px;
+}
+
+/* Ajustes dos textos para celular */
+.logo-titulo {
+    font-size: 3rem;          /* Tamanho grande e responsivo para o título */
+    font-weight: 300;         /* Deixa a fonte mais fina, idêntica à imagem */
+    margin-bottom: 5px;
+}
+
+.logo-subtitulo {
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-bottom: 40px;      /* Dá um espaço maior antes de vir a imagem */
+}
+
+/* Ajuste da imagem para celular */
+.logo-imagem {
+    max-width: 180px;         /* Limita a largura máxima da imagem no celular */
+    width: 100%;              /* Garante que ela se adapte se a tela for muito pequena */
+    height: auto;             /* Mantém a proporção correta sem achatar */
+}
+
+
+/* ==========================================
+   2. MEDIA QUERY (Para computadores/telas maiores)
+   ========================================== */
+@media (min-width: 768px) {
+    .logo-titulo {
+        font-size: 4.5rem;    /* O título cresce um pouco em telas grandes */
+    }
+
+    .logo-subtitulo {
+        font-size: 1.5rem;    /* O subtítulo cresce proporcionalmente */
+    }
+
+    .logo-imagem {
+        max-width: 240px;     /* A imagem ganha mais destaque em telas grandes */
+    }
+}
+
+
+/* ==========================================
+   BOTAO DE PARTIDA CENTRAL
+   ========================================== */
+
+.botao-partida {
+    display: flex;     
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+
+    color: #023618;
+    border: 2px solid #111111; 
+    padding: 14px 40px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 30px;      
+    cursor: pointer;
+    width: max-content;
+    align-self: center; 
+    
+    /*COMPORTAMENTO DAS MARGENS LIMITADO E CORRETOR: */
+    margin-top: 15px;      /* Deixa ele mais pertinho do boneco de yoga */
+    margin-bottom: 40px;   /* Força um espaço embaixo para desgrudar do final da tela */
+    margin-left: auto;     /* Garante a trava de segurança no centro */
+    margin-right: auto;    /* Garante a trava de segurança no centro */
+    
+    transition: all 0.2s ease;
+}
+
+/* Efeito sutil ao passar o mouse ou tocar */
+.botao-partida:hover {
+    background-color: #111111;
+    color: #82e9b4; 
+}
+
+
+/* ==========================================
+   ESTRUTURA DO MODAL RESPONSIVO
+   ========================================== */
+.modal {
+    border: 2px solid #111111;
+    border-radius: 16px;
+    padding: 0;
+    max-width: 450px;
+    width: 90%; /* Ocupa quase toda a tela no celular */
+    margin: auto; /* Centraliza perfeitamente na tela */
+    background: #ffffff;
+}
+
+/* Efeito escuro/borrado atrás do modal */
+.modal::backdrop {
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(3px);
+}
+
+.modal-conteudo {
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.modal-conteudo h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #111111;
+}
+
+.modal-conteudo p {
+    font-size: 1rem;
+    color: #555555;
+    margin-bottom: 25px;
+}
+
+/* Alinhamento dos botões de humor */
+.opcoes-humor {
+    display: flex;
+    flex-direction: column; /* Empilhados no celular */
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.btn-humor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px;
+    border: 2px solid #111111;
+    border-radius: 12px;
+    background: #f9f9f9;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+}
+
+.btn-humor:active {
+    transform: scale(0.98); /* Feedback de clique no celular */
+}
+
+/* Cores sutis de hover para cada humor */
+.btn-humor.bem:hover { background-color: #d1fae5; }
+.btn-humor.mais-ou-menos:hover { background-color: #fef3c7; }
+.btn-humor.mal:hover { background-color: #fee2e2; }
+
+.btn-fechar {
+    background: none;
+    border: none;
+    color: #777777;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+/* Media Query para telas maiores */
+@media (min-width: 600px) {
+    .opcoes-humor {
+        flex-direction: row; /* Ficam lado a lado em computadores */
+    }
+    .btn-humor {
+        flex: 1;
+        flex-direction: column; /* Emoji em cima, texto embaixo */
+        padding: 20px 10px;
+    }
+    .btn-humor .emoji {
+        font-size: 1.8rem;
+    }
+}
+
+
+

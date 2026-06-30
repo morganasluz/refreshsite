@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Refresh</title>
+
+    <link rel="stylesheet" href="estilo.css">
+
+</head>
+<body>
+
+ <div class="tela-centralizada">
+        <h1 class="logo-titulo">Refresh</h1>
+        <p class="logo-subtitulo">para professores cansados</p>
+        
+        <img src="imagens/ImagemLogo.png" alt="Ilustração Refresh" class="logo-imagem">
+ </div>
+
+<!-- Botão Iniciar -->
+<button id="btn-iniciar" class="botao-partida">
+    Começar Check-in
+</button>
+
+<!-- Modal de humor -->
+<dialog id="modal-humor" class="modal">
+    <div class="modal-conteudo">
+        <h2>Como você está se sentindo hoje?</h2>
+        <p>Escolha a opção que melhor descreve seu humor atual:</p>
+        
+        <div class="opcoes-humor">
+            <button class="btn-humor bem" data-humor="bem">
+                <span class="emoji">😊</span> Bem
+            </button>
+            <button class="btn-humor mais-ou-menos" data-humor="medio">
+                <span class="emoji">😐</span> Mais ou menos
+            </button>
+            <button class="btn-humor mal" data-humor="mal">
+                <span class="emoji">😢</span> Mal
+            </button>
+        </div>
+        
+        <button id="btn-fechar" class="btn-fechar">Fechar</button>
+    </div>
+</dialog>
+
+
+
+
+
+
+
+<script src="script.js"></script>
+</body>
+</html>

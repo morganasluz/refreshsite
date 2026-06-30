@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recados Acolhedores</title>
+    <link rel="stylesheet" href="humores.css">
+</head>
+<body>
+    <section class="tela-conteudo tom-neutro">
+        <header class="barra-superior superior-neutro">
+            <span class="app-titulo">Refresh</span>
+            <a href="medio.html" class="btn-icone-voltar" style="display: flex; text-decoration: none;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 14 4 9l5-5"/><path d="M20 20v-7a4 4 0 0 0-4-4H4"/></svg>
+            </a>
+        </header>
+
+        <div class="container-recados">
+            <!-- Balão de Texto Estilo Ilustração -->
+            <div class="balao-recado">
+                <p id="texto-recado">Carregando uma mensagem carinhosa para você...</p>
+            </div>
+
+            <!-- Botão para sortear nova frase -->
+            <button id="btn-novo-recado" class="botao-partida">
+                ✨ Ler outra mensagem
+            </button>
+        </div>
+    </section>
+
+    <script>
+        // Lista com as frases (você pode adicionar quantas quiser aqui!)
+        const frasesAcolhedoras = [
+            "Você é um profissional incrível, mas lembre-se: sua saúde mental importa mais do que qualquer plano de aula.",
+            "Respire fundo. O que você não conseguiu resolver hoje, pode esperar pelo amanhã.",
+            "Sua dedicação transforma vidas, mas você também precisa de cuidado. Tire um momento só seu hoje.",
+            "Tudo bem não estar 100% o tempo todo. Você está fazendo o seu melhor com a energia que tem agora.",
+            "Educar é um ato de amor, e o primeiro ato de amor deve ser com você mesmo. Descanse.",
+            "Seus limites merecem respeito. Dizer 'não' para uma demanda extra é dizer 'sim' para o seu bem-estar.",
+            "Lembre-se de comemorar as pequenas vitórias do dia, mesmo que tenha sido apenas sobreviver a uma aula difícil."
+        ];
+
+        const textoRecado = document.getElementById('texto-recado');
+        const btnNovoRecado = document.getElementById('btn-novo-recado');
+
+        // Função para sortear uma frase sem repetir a atual imediatamente
+        let ultimaFraseIndex = -1;
+        
+        function sortearFrase() {
+            let novoIndex;
+            do {
+                novoIndex = Math.floor(Math.random() * frasesAcolhedoras.length);
+            } while (novoIndex === ultimaFraseIndex && frasesAcolhedoras.length > 1);
+            
+            ultimaFraseIndex = novoIndex;
+            textoRecado.innerText = frasesAcolhedoras[novoIndex];
+        }
+
+        // Sorteia uma frase assim que a página abre
+        window.addEventListener('DOMContentLoaded', sortearFrase);
+
+        // Sorteia uma nova frase ao clicar no botão
+        btnNovoRecado.addEventListener('click', sortearFrase);
+    </script>
+</body>
+</html>

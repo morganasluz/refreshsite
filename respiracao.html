@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Respiração Guiada</title>
+    <link rel="stylesheet" href="humores.css">
+</head>
+<body>
+    <section class="tela-conteudo tom-neutro">
+        <header class="barra-superior superior-neutro">
+            <span class="app-titulo">Refresh</span>
+            <!-- Ajuste definitivo na tag de voltar -->
+            <a href="medio.html" class="btn-icone-voltar" style="display: flex; text-decoration: none;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 14 4 9l5-5"/><path d="M20 20v-7a4 4 0 0 0-4-4H4"/></svg>
+            </a>
+        </header>
+
+        <div class="container-respiracao">
+            <h1 id="instrucao">Prepare-se para começar...</h1>
+            <p id="cronometro">60s</p>
+
+            <div class="guia-respiracao-container">
+                <div id="circulo-guia" class="circulo-guia"></div>
+            </div>
+
+            <!-- Botão de Iniciar -->
+            <button id="btn-respirar" class="botao-partida">Começar</button>
+            
+            <!-- NOVO: Botão de Recomeçar (Começa escondido) -->
+            <button id="btn-recomeçar" class="botao-partida escondida">Respirar novamente</button>
+        </div>
+    </section>
+
+    <script>
+        const btnRespirar = document.getElementById('btn-respirar');
+        const btnRecomeçar = document.getElementById('btn-recomeçar');
+        const instrucao = document.getElementById('instrucao');
+        const cronometro = document.getElementById('cronometro');
+        const circuloGuia = document.getElementById('circulo-guia');
+
+        let tempoRestante = 60;
+        let timer;
+        let animacao;
+
+        // Dispara o início do exercício
+        btnRespirar.addEventListener('click', () => {
+            btnRespirar.classList.add('escondida');
+            iniciarExercicio();
+        });
+
+        // Dispara o reinício do exercício
+        btnRecomeçar.addEventListener('click', () => {
+            btnRecomeçar.classList.add('escondida');
+            tempoRestante = 60;
+            cronometro.innerText = "60s";
+            iniciarExercicio();
+        });
+
+        function iniciarExercicio() {
+            let ciclo = () => {
+                instrucao.innerText = "Inspire...";
+                circuloGuia.classList.add('expandir');
+                
+                setTimeout(() => {
+                    if (tempoRestante > 0) {
+                        instrucao.innerText = "Expire...";
+                        circuloGuia.classList.remove('expandir');
+                    }
+                }, 4000);
+            };
+
+            ciclo(); 
+            animacao = setInterval(ciclo, 8000); 
+
+            timer = setInterval(() => {
+                tempoRestante--;
+                cronometro.innerText = `${tempoRestante}s`;
+
+                if (tempoRestante <= 0) {
+                    clearInterval(timer);
+                    clearInterval(animacao);
+                    instrucao.innerText = "Parabéns! Você concluiu. 🤍";
+                    circuloGuia.classList.remove('expandir');
+                    
+                    // Mostra o botão de recomeçar ao final
+                    btnRecomeçar.classList.remove('escondida');
+                }
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
