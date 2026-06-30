@@ -2,9 +2,10 @@
 .tela-conteudo {
     width: 100%;
     min-height: 100vh;
-    background-color: #a3e6be; /* Tom de verde menta mais suave da sua imagem */
     display: flex;
     flex-direction: column;
+    overflow-x: hidden;      /* 🌟 IMPEDE O VAZAMENTO DA TELA PARA O LADO */
+    box-sizing: border-box;  /* 🌟 FAZ OS ESPAÇOS CABEREM DENTRO DA TELA */
 }
 
 /* Barra Superior Fixa */
@@ -14,8 +15,9 @@
     justify-content: space-between;
     align-items: center;
     padding: 15px 25px;
-    background-color: #4cae7d; /* Verde escuro do topo */
+    background-color: #4cae7d; 
     color: #ffffff;
+    box-sizing: border-box;  /* 🌟 EVITA QUE A BARRA EMPURRE A TELA */
 }
 
 .app-titulo {
@@ -44,6 +46,7 @@
     max-width: 1200px;
     width: 100%;
     margin: 0 auto;
+    box-sizing: border-box;  /* 🌟 CONTROLA A LARGURA EXATA */
 }
 
 .titulo-feliz {
