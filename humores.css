@@ -1,0 +1,442 @@
+/******Tela feliz*******/
+.tela-conteudo {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #a3e6be; /* Tom de verde menta mais suave da sua imagem */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Barra Superior Fixa */
+.barra-superior {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px;
+    background-color: #4cae7d; /* Verde escuro do topo */
+    color: #ffffff;
+}
+
+.app-titulo {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.btn-icone-voltar {
+    background: none;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+}
+
+.btn-icone-voltar:hover {
+    transform: scale(1.1);
+}
+
+/* Container do Conteúdo */
+.container-feliz {
+    padding: 40px 25px;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.titulo-feliz {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #1a3a2a;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.subtitulo-feliz {
+    font-size: 1.3rem;
+    color: #2b523c;
+    margin-bottom: 45px;
+    max-width: 700px;
+    text-align: left;
+}
+
+/* Grade de Opções (Padrão Celular: uma embaixo da outra) */
+.grade-opcoes {
+    display: grid;
+    grid-template-columns: 1fr; /* 1 coluna apenas no celular */
+    gap: 25px;
+}
+
+.card-opcao {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.rotulo-opcao {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #2b523c;
+}
+
+/* Força os blocos de imagem a serem quadrados e redondos */
+.wrapper-imagem {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Mantém a proporção perfeitamente quadrada */
+    border-radius: 18px;  /* Cantos suavizados como no anexo */
+    overflow: hidden;     /* Corta a imagem para não vazar a borda redonda */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease;
+}
+
+.wrapper-imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que a foto preencha o quadrado sem se achatar */
+}
+
+/* Efeito ao passar o mouse */
+.card-opcao:hover .wrapper-imagem {
+    transform: translateY(-5px);
+}
+
+/* ==========================================
+   MEDIA QUERY PARA RESPONSIVIDADE (TABLET / PC)
+   ========================================== */
+@media (min-width: 768px) {
+    .titulo-feliz {
+        font-size: 2.8rem;
+    }
+    
+    /* Cria as 4 colunas lado a lado perfeitamente divididas */
+    .grade-opcoes {
+        grid-template-columns: repeat(4, 1fr); 
+        gap: 20px;
+    }
+}
+
+
+/*Meditação*/
+/* Mantém o visual do link idêntico aos cards */
+.link-direto {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+}
+
+/*Dicas de Filmes e Series*/
+/* Layout da Lista de Dicas */
+.lista-midias {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+.card-midia {
+    background: #ffffff;
+    border: 2px solid #111111;
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column; /* Mobile first */
+    gap: 20px;
+    box-shadow: 4px 4px 0px #111111;
+}
+.poster-midia {
+    width: 100%;
+    max-height: 250px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 2px solid #111111;
+}
+.info-midia h2 {
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+}
+.badge-streaming {
+    display: inline-block;
+    background: #111111;
+    color: #82e9b4;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+.info-midia p {
+    color: #444444;
+    line-height: 1.5;
+}
+
+/* Responsividade para Telas Grandes */
+@media (min-width: 768px) {
+    .card-midia {
+        flex-direction: row; /* Fica lado a lado no PC */
+        align-items: center;
+    }
+    .poster-midia {
+        width: 150px;
+        height: 200px;
+    }
+}
+
+/*****Playlists******/
+/* Layout da Lista de Playlists */
+.lista-playlists {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 600px; /* Mantém uma largura bonita no PC */
+    width: 100%;
+}
+
+.card-playlist-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: #ffffff;
+    border: 2px solid #111111;
+    border-radius: 16px;
+    padding: 20px;
+    text-decoration: none;
+    color: #111111;
+    box-shadow: 4px 4px 0px #111111;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-playlist-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 6px 6px 0px #111111;
+    background-color: #1DB954; /* Ganha a cor do Spotify no hover */
+    color: #ffffff;
+}
+
+/* Garante que o texto de dentro mude de cor junto no hover */
+.card-playlist-item:hover .texto-playlist p {
+    color: #e2fceb;
+}
+
+.emoji-playlist {
+    font-size: 2.2rem;
+}
+
+.texto-playlist h2 {
+    font-size: 1.2rem;
+    margin-bottom: 4px;
+}
+
+.texto-playlist p {
+    font-size: 0.95rem;
+    color: #555555;
+}
+
+
+
+
+
+/*Tela mais ou menos*/
+/* Tons específicos para a página "Mais ou Menos" */
+.tela-conteudo.tom-neutro {
+    background-color: #f0e6df; /* Um tom areia/creme bem confortável para os olhos */
+}
+
+.barra-superior.superior-neutro {
+    background-color: #bfa393; /* Um marrom/bege acinzentado suave para o topo */
+}
+
+.tom-neutro .titulo-feliz {
+    color: #4a3b32;
+}
+
+.tom-neutro .subtitulo-feliz {
+    color: #615045;
+}
+
+.tom-neutro .rotulo-opcao {
+    color: #4a3b32;
+}
+
+
+/*Respiração*/
+/* Container Central da Respiração */
+.container-respiracao {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+}
+
+#instrucao {
+    font-size: 1.8rem;
+    color: #4a3b32;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+#cronometro {
+    font-size: 1.3rem;
+    color: #bfa393;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+/* Área do Círculo */
+.guia-respiracao-container {
+    width: 250px;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.circulo-guia {
+    width: 80px;
+    height: 80px;
+    background-color: #bfa393;
+    border: 2px solid #111111;
+    border-radius: 50%;
+    box-shadow: 4px 4px 0px #111111;
+    transition: all 4s ease-in-out; /* Controla a suavidade da respiração (4 segundos) */
+}
+
+/* Classe aplicada pelo JS para fazer o círculo inflar */
+.circulo-guia.expandir {
+    width: 220px;
+    height: 220px;
+    background-color: #ffffff;
+}
+
+.escondida {
+    display: none !important;
+}
+
+/*Recados de conforto*/
+/* Container de Recados */
+.container-recados {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    padding: 30px 20px;
+    max-width: 600px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* O Balão Estilo Cartoon/Ilustração */
+.balao-recado {
+    background: #ffffff;
+    border: 2px solid #111111;
+    border-radius: 24px;
+    padding: 40px 30px;
+    box-shadow: 6px 6px 0px #111111; /* Sombra sólida preta igual aos cartões */
+    margin-bottom: 20px;
+    position: relative;
+    width: 100%;
+}
+
+#texto-recado {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    color: #4a3b32;
+    font-weight: 500;
+    text-align: center;
+}
+
+/* Deixa o texto ligeiramente maior no computador */
+@media (min-width: 768px) {
+    #texto-recado {
+        font-size: 1.5rem;
+    }
+}
+
+
+
+
+/*Tela triste*/
+/* Paleta acolhedora para a página "Mal" */
+.tela-conteudo.tom-suave {
+    background-color: #e3ecf5; /* Azul acinzentado bem leve e calmo */
+}
+
+.barra-superior.superior-suave {
+    background-color: #8faec4; /* Azul pastel para o topo */
+}
+
+.container-acolhimento {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    padding: 40px 25px;
+    max-width: 700px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.titulo-acolhimento {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #243a4a;
+    margin-bottom: 15px;
+}
+
+.subtitulo-acolhimento {
+    font-size: 1.1rem;
+    color: #405a6e;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+/* Lista de Cartões de Ajuda */
+.lista-ajuda {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.card-ajuda-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: #ffffff;
+    border: 2px solid #111111;
+    border-radius: 16px;
+    padding: 20px;
+    text-decoration: none;
+    color: #111111;
+    box-shadow: 4px 4px 0px #111111;
+    text-align: left;
+    transition: transform 0.2s ease;
+}
+
+.card-ajuda-item:hover {
+    transform: translateY(-2px);
+    background-color: #f7fafd;
+}
+
+.emoji-ajuda {
+    font-size: 2.2rem;
+}
+
+.texto-ajuda h2 {
+    font-size: 1.2rem;
+    margin-bottom: 4px;
+    color: #243a4a;
+}
+
+.texto-ajuda p {
+    font-size: 0.95rem;
+    color: #555555;
+}
