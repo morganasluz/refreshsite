@@ -7,21 +7,30 @@
     padding: 0;
 }
 
+/* 1. O novo container dos dois elementos unidos */
+.bloco-principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #ffffff; /* Cor verde menta aproximada da sua imagem */
+    background-color: #8defbf; /* Cor verde menta aproximada da sua imagem */
     color: #111111;            /* Cor do texto escura */
 }
 
-/* O container que força tudo a ficar no centro da tela */
 .tela-centralizada {
     display: flex;
-    flex-direction: column;   /* Empilha os elementos em linha vertical */
-    justify-content: center;  /* Centraliza verticalmente na tela */
-    align-items: center;      /* Centraliza horizontalmente na tela */
-    min-height: 100vh;        /* Garante que o container ocupe 100% da altura da tela */
-    text-align: center;
-    padding: 20px;
+    flex-direction: column;   
+    justify-content: center;  /* Força tudo a se agrupar no centro vertical, colados */
+    align-items: center;      
+    width: 100%;
+    min-height: 100vh;        
+    padding: 20px;            /* Diminuído para dar mais espaço vertical */
+    text-align: center;       
 }
 
 /* Ajustes dos textos para celular */
@@ -37,11 +46,13 @@ body {
     margin-bottom: 40px;      /* Dá um espaço maior antes de vir a imagem */
 }
 
-/* Ajuste da imagem para celular */
+/* 2. Deixa a imagem com tamanho fixo e controlado */
 .logo-imagem {
-    max-width: 180px;         /* Limita a largura máxima da imagem no celular */
-    width: 100%;              /* Garante que ela se adapte se a tela for muito pequena */
-    height: auto;             /* Mantém a proporção correta sem achatar */
+    max-width: 160px;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto; /* Remove margens inferiores que empurram o botão */
 }
 
 
@@ -63,40 +74,31 @@ body {
 }
 
 
-/* ==========================================
-   BOTAO DE PARTIDA CENTRAL
-   ========================================== */
-
+/*Botão de partida*/
+/* 3. O botão agora ganha o controle real de aproximação */
 .botao-partida {
     display: flex;     
     justify-content: center;
     align-items: center;
     background-color: transparent;
-
     color: #023618;
     border: 2px solid #111111; 
-    padding: 14px 40px;
+    padding: 12px 35px;       
     font-size: 1.1rem;
     font-weight: 600;
     border-radius: 30px;      
     cursor: pointer;
     width: max-content;
-    align-self: center; 
     
-    /*COMPORTAMENTO DAS MARGENS LIMITADO E CORRETOR: */
-    margin-top: 15px;      /* Deixa ele mais pertinho do boneco de yoga */
-    margin-bottom: 40px;   /* Força um espaço embaixo para desgrudar do final da tela */
-    margin-left: auto;     /* Garante a trava de segurança no centro */
-    margin-right: auto;    /* Garante a trava de segurança no centro */
+    /* 🌟 O CONTROLE REAL: */
+    margin-top: 15px !important; /* Define exatamente quantos pixels ele fica longe do boneco */
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
     
     transition: all 0.2s ease;
 }
 
-/* Efeito sutil ao passar o mouse ou tocar */
-.botao-partida:hover {
-    background-color: #111111;
-    color: #82e9b4; 
-}
 
 
 /* ==========================================
