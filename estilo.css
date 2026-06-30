@@ -13,24 +13,29 @@
 /* ==========================================
    BLINDAGEM CONTRA MODO ESCURO FORÇADO DO CELULAR
    ========================================== */
-:root {
-    /* Força o navegador a entender que o site é estritamente de tema claro */
-    supported-color-schemes: light;
-}
-
+/* ==========================================
+   BLINDAGEM CORRETA DE COR PARA MOBILE
+   ========================================== */
 html, body {
     width: 100%;
     min-height: 100vh;
-    
-    /* Cores forçadas em todos os formatos possíveis */
-    background: #82e9b4 !important;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+
+    /* 🌟 O TRUQUE DA IMAGEM ESTÁTICA: */
+    /* Transformamos o verde menta em um degradê de uma cor só. O celular não consegue inverter isso! */
+    background: linear-gradient(#82e9b4, #82e9b4) !important;
     background-color: #82e9b4 !important;
-    color: #111111 !important;
     
-    /* Bloqueia a inversão forçada de cor em navegadores baseados em Chromium (Chrome/Samsung) */
-    color-scheme: light !important;
-    forced-color-adjust: none !important;
+    /* Mantém o texto escuro fixo */
+    color: #111111 !important; 
+    
+    /* Configuração padrão segura */
+    color-scheme: light;
 }
+
 
 
 
