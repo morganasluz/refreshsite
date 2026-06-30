@@ -7,6 +7,25 @@
     padding: 0;
 }
 
+/* ==========================================
+   TRAVA DE COR E COMPATIBILIDADE MOBILE
+   ========================================== */
+html, body {
+    width: 100%;
+    min-height: 100%;
+    
+    /* 🌟 AS TRÊS LINHAS QUE BLINDAM A COR: */
+    background-color: #82e9b4 !important; /* Força o verde menta original */
+    color: #111111 !important;            /* Força o texto escuro original */
+    color-scheme: light;                  /* Diz ao celular: "Este site é feito para modo claro" */
+    
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+
 /* 1. O novo container dos dois elementos unidos */
 .bloco-principal {
     display: flex;
